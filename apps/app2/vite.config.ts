@@ -5,7 +5,7 @@ import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 
 export default defineConfig({
   root: __dirname,
-  cacheDir: '../../node_modules/.vite/apps/my-static-websites',
+  cacheDir: '../../node_modules/.vite/apps/app2',
 
   server: {
     port: 4200,
@@ -25,26 +25,26 @@ export default defineConfig({
   // },
 
   build: {
-    outDir: '../../dist/apps/my-static-websites',
+    outDir: '../../dist/apps/app2',
     emptyOutDir: true,
     reportCompressedSize: true,
     commonjsOptions: {
       transformMixedEsModules: true,
     },
   },
-
+  base: '/app2/',
   test: {
     watch: false,
     globals: true,
     cache: {
-      dir: '../../node_modules/.vitest/apps/my-static-websites',
+      dir: '../../node_modules/.vitest/apps/app2',
     },
     environment: 'jsdom',
     include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
 
     reporters: ['default'],
     coverage: {
-      reportsDirectory: '../../coverage/apps/my-static-websites',
+      reportsDirectory: '../../coverage/apps/app2',
       provider: 'v8',
     },
   },
